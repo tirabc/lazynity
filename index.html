@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        
+        <h1>Lazynity - Lazy Load & Infinity</h1>
+        <div class="content">
+            <ul id="mylonglist">
+            </ul>
+        </div>
+        
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+        <script src="js/jquery.lazynity.js"></script>
+        <script src="ais_120000_loc.js"></script>
+        <script>
+            
+            $(document).bind("ready", function(){
+
+                $('#mylonglist').lazynity({
+                    renderingFn:    Mustache.render,
+                    models:         ais_data,
+                    template:       "<li>{{mobileId}}</li>",
+                    height:         400,
+                    treshold:       40
+                });
+                
+                $('#mylonglist').bind('rendered',function(){
+                    console.log('rendered');
+                });
+                
+            });
+ 
+        </script>
+        
+    </body>
+</html>
