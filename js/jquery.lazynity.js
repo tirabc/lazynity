@@ -6,10 +6,10 @@
          */
         var options = $.extend( {
             start:          0,
-            treshold:       40,
+            treshold:       40, // number of items to load each time the scroll event fires
             renderingFn:    function(){},
             template:       "",
-            height:         200 // mandatory
+            height:         200 // minimum height of the current div, mandatory
         } , options );
         
         /**
@@ -32,13 +32,15 @@
             
         };
          
-        self._renderItems = function ( items ) {         
+        self._renderItems = function ( items ) {  
+
             $.each( items , function ( index , item ){
                 self._renderItem( item );
                 nb++;
             });
             start = start + options.treshold;
             end = end + options.treshold;   
+
         };
         
         self._renderItem = function ( item ) {
@@ -69,7 +71,6 @@
          * 2. get views and create partials
          * 3. refresh the main view with partials
          * 4. trigger a rendered event
-         * 5. detect scroll problem
          */
         
         // 0. init

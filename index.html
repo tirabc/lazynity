@@ -2,12 +2,68 @@
 <html>
     <head>
         <style>
+            *,html{
+                margin: 0;
+                font-family: Helvetica;
+            }
+            body{
+                background: #045FB4;
+            }
+            #loader{
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
 
+            .overlay{
+                background: #333;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 100;
+            }
+            h1{
+                color: #FFF;
+                margin-bottom: 10px;
+                margin-left: 10%;
+            }
+            h1>span{
+                font-size: 14px;
+            }
+            h2{
+                position: absolute;
+                top: 40%;
+                left: 30%;
+                width: 40%;
+                text-align: center;
+                color: #DEDEDE;
+                z-index: 1000;
+            }
+            #mylonglist{
+                background: #A9D0F5;
+                border: solid 4px #333;
+                margin: 0 10%;
+                padding: 0;
+            }
+            li{
+                height: 30px;
+                list-style-type: none;
+                padding: 4px;
+                color: #555;
+            }
+            li:nth-child(odd){
+                background: #CEECF5;
+            }
         </style>
     </head>
     <body>
+
+        <div id="loader">
+            <h2>Loading data (not DOM nodes) ...</h2>
+            <div class="overlay"></div>
+        </div>
         
-        <h1>Lazynity - Lazy Load & Infinity</h1>
+        <h1>Lazynity<span>Example</span></h1>
         <div class="content">
             <ul id="mylonglist">
             </ul>
@@ -16,21 +72,26 @@
         <script src="js/jquery-1.9.1.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
         <script src="js/jquery.lazynity.js"></script>
-        <script src="ais_120000_loc.js"></script>
         <script>
             
             $(document).bind("ready", function(){
 
-                $('#mylonglist').lazynity({
-                    renderingFn:    Mustache.render,
-                    models:         ais_data,
-                    template:       "<li>{{mobileId}}</li>",
-                    height:         400,
-                    treshold:       40
-                });
+                $.getScript("ais_120000_loc.js",function(){
+                    
+                    $("#loader").fadeOut();
                 
-                $('#mylonglist').bind('rendered',function(){
-                    console.log('rendered');
+                    $('#mylonglist').lazynity({
+                        renderingFn:    Mustache.render,
+                        models:         ais_data,
+                        template:       "<li>{{mobileId}}</li>",
+                        height:         600,
+                        treshold:       40
+                    });
+                    
+                    $('#mylonglist').bind('rendered',function(){
+                        console.log('rendered');
+                    });
+
                 });
                 
             });
