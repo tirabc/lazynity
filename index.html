@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Lazynity : A lazy loader with infinity inside">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Lazynity</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/tirabc/lazynity">View on GitHub</a>
+
+          <h1 id="project_title">Lazynity</h1>
+          <h2 id="project_tagline">A lazy loader with infinity inside</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/tirabc/lazynity/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/tirabc/lazynity/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="lazynity" class="anchor" href="#lazynity"><span class="octicon octicon-link"></span></a>Lazynity</h1>
+
+<hr><h2>
+<a name="whats-that-" class="anchor" href="#whats-that-"><span class="octicon octicon-link"></span></a>What's that ?</h2>
+
+<p>A jquery plugin for lazy loading.</p>
+
+<p><em>For developers: this plugin was created with KISS &amp; DRY principles in mind. Don't hesitate to fork the project and to improve the code.</em></p>
+
+<hr><h2>
+<a name="demos--examples" class="anchor" href="#demos--examples"><span class="octicon octicon-link"></span></a>Demos &amp; Examples</h2>
+
+<p><a href="http://tirabc.github.io/lazynity" title="Lazynity - Demos &amp; Examples">http://tirabc.github.io/lazynity</a></p>
+
+<hr><h2>
+<a name="how-to-use-it-" class="anchor" href="#how-to-use-it-"><span class="octicon octicon-link"></span></a>How to use it ?</h2>
+
+<p>Lazynity depends on jQuery. Include them both in end of your HTML code:</p>
+
+<pre><code>&lt;script src="jquery.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="jquery.lazynity.js" type="text/javascript"&gt;&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a name="html" class="anchor" href="#html"><span class="octicon octicon-link"></span></a>HTML</h3>
+
+<pre><code>&lt;div id="wrapper"&gt;
+  &lt;ul id="mylonglist"&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>
+<a name="js" class="anchor" href="#js"><span class="octicon octicon-link"></span></a>JS</h3>
+
+<pre><code>$(document).bind("ready", function(){
+
+    $.getScript("ais_120000_loc.js",function(){
+
+        $('#mylonglist').lazynity({
+            renderingFn:    Mustache.render,
+            models:         ais_data,
+            template:       "&lt;li&gt;{{mobileId}}&lt;/li&gt;",
+            height:         600,
+            treshold:       40
+        });
+
+        $('#mylonglist').bind('rendered',function(){
+            console.log('rendered');
+        });
+
+    });
+
+});
+</code></pre>
+
+<h3>
+<a name="css" class="anchor" href="#css"><span class="octicon octicon-link"></span></a>CSS</h3>
+
+<p>No CSS hack needed.</p>
+
+<hr><h2>
+<a name="methods-options-and-events" class="anchor" href="#methods-options-and-events"><span class="octicon octicon-link"></span></a>Methods, Options and Events</h2>
+
+<h3>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h3>
+
+<pre><code>$('#myul').lazynity( options );
+</code></pre>
+
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
+
+<ul>
+<li>
+<strong>renderingFn</strong> Function to parse and render html with templates</li>
+<li>
+<strong>models</strong> Data (array)</li>
+<li>
+<strong>template</strong> html snippet (e.g. "</li>
+<li>{{mobileId}}</li>")
+<li>
+<strong>height</strong> height of the list</li>
+<li>
+<strong>treshold</strong> number of items to load each time</li>
+</ul><h3>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<ul>
+<li>
+<strong>rendered</strong> Triggered when the plugin has finished to load data and the list is rendered</li>
+</ul><hr><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This plugin is available under the <a href="https://github.com/tirabc/lazynity/blob/master/CC-LICENSE.txt" title="CC-BY-NC License for Lazynity jquery plugin">Creative Commons License</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Lazynity maintained by <a href="https://github.com/tirabc">tirabc</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-39972352-8");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
