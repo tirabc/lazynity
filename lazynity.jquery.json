@@ -1,0 +1,38 @@
+{
+	"name": "lazynity",
+	"version": "0.1.0",
+	"title": "Lazynity",
+	"author":  {
+		"name" : "Christian Barras",
+		"email" : "tirabc@gmail.com",
+		"url" : "http://tirabc.github.io"
+	},
+	"licenses": [
+		{
+			"type": "CC-BY-NC",
+			"url": "https://github.com/tirabc/lazynity/blob/master/CC-LICENSE.txt"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.5"
+	},
+	"description": "A jquery plugin for lazy loading.",
+	 "keywords": [
+		"lazyloading",
+		"scrolling",
+		"infinite",
+		"large-data"
+	],
+	"homepage": "https://tirabc.github.io/lazynity",
+	"docs": "https://tirabc.github.io/lazynity",
+	"demo": "http://tirabc.github.io/lazynity",
+	"download": "https://tirabc.github.io/lazynity",
+	"bugs": "https://github.com/tirabc/lazynity/issues",
+	"maintainers": [
+		{
+			"name": "Christian Barras",
+			"email": "tirabc@gmail.com",
+			"url": "http://tirabc.github.io"
+		}		
+	]
+}
